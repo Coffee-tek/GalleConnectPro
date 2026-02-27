@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Menu, X, Building2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -20,13 +21,18 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#d99306]">
-            <Building2 className="h-5 w-5 text-white" />
-          </div>
-          <div className="flex flex-col leading-tight">
+          {/* logo image, replace `/img/logo.png` with your actual logo file */}
+          <Image
+            src="/img/logo1.svg"
+            alt="Gallé Connect Pro logo"
+            width={130}
+            height={50}
+            className="rounded-lg"
+          />
+          {/* <div className="flex flex-col leading-tight">
             <span className="text-lg font-bold text-[#374250] tracking-tight">Gallé</span>
             <span className="text-sm text-[#374250] -mt-1">Connect Pro</span>
-          </div>
+          </div> */}
         </Link>
 
         {/* Desktop Nav */}

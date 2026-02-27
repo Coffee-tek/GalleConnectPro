@@ -174,7 +174,7 @@ export default function WaitlistPage() {
                         </Button>
 
                         <p className="text-center text-xs text-[#3a3a3a]">
-                          En vous inscrivant, vous acceptez de recevoir des emails de GalleConnect Pro. Vous pouvez vous désinscrire à tout moment.
+                          En vous inscrivant, vous acceptez de recevoir des emails de Gallé Connect Pro. Vous pouvez vous désinscrire à tout moment.
                         </p>
                       </form>
                     </>

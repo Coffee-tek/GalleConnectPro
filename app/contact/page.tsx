@@ -20,8 +20,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "support@Gallé Connect.com",
-    href: "mailto:support@Gallé Connect.com",
+    value: "support@galleconnect.com",
+    href: "mailto:support@galleconnect.com",
   },
   // {
   //   icon: Phone,
@@ -38,17 +38,17 @@ const contactInfo = [
   {
     icon: Clock,
     label: "Horaires",
-    value: "Lun - Ven : 9h00 - 18h00",
+    value: "Lun - Ven : 10h00 - 18h00",
     href: null,
   },
 ]
 
 const subjects = [
-  { value: "demo", label: "Demander une démo" },
-  { value: "pricing", label: "Questions sur les tarifs" },
-  { value: "partnership", label: "Partenariat" },
-  { value: "support", label: "Support technique" },
-  { value: "other", label: "Autre demande" },
+  { value: "Demander une démo", label: "Demander une démo" },
+  { value: "Questions sur les tarifs", label: "Questions sur les tarifs" },
+  { value: "Partenariat", label: "Partenariat" },
+  // { value: "Support technique", label: "Support technique" },
+  { value: "Autre demande", label: "Autre demande" },
 ]
 
 export default function ContactPage() {
@@ -71,7 +71,7 @@ export default function ContactPage() {
               Parlons de votre projet
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#3a3a3a] animate-fade-in-up animation-delay-200">
-              Une question sur Gallé Connect Pro ? Besoin d'une demonstration ? Notre equipe est la pour vous accompagner.
+              Une question sur Gallé Connect Pro ? Besoin d'une démonstration ? Notre équipe est la pour vous accompagner.
             </p>
           </div>
         </section>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                           </Label>
                           <Input
                             id="firstName"
-                            placeholder="Jean"
+                            placeholder="Jamil"
                             required
                             className="bg-background"
                           />
@@ -198,7 +198,7 @@ export default function ContactPage() {
                           </Label>
                           <Input
                             id="lastName"
-                            placeholder="Dupont"
+                            placeholder="Seye"
                             required
                             className="bg-background"
                           />
@@ -212,7 +212,7 @@ export default function ContactPage() {
                         <Input
                           id="email"
                           type="email"
-                          placeholder="jean.dupont@email.com"
+                          placeholder="jamil.seye@email.com"
                           required
                           className="bg-background"
                         />

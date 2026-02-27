@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Building2, Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
+import Image from "next/image"
 
 const siteLinks = [
   { href: "/", label: "Accueil" },
@@ -20,9 +21,9 @@ const solutions = [
 ]
 
 const legal = [
-  { href: "#", label: "Politique de confidentialité" },
-  { href: "#", label: "Conditions d’utilisation" },
-  { href: "#", label: "Mentions légales" },
+  { href: "https://galleconnect.com/privacy", label: "Politique de confidentialité" },
+  { href: "https://galleconnect.com/condition_utilisation", label: "Conditions d’utilisation" },
+  // { href: "#", label: "Mentions légales" },
 ]
 
 export function Footer() {
@@ -33,15 +34,22 @@ export function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#d99306] transition-transform group-hover:scale-105">
+              {/* <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#d99306] transition-transform group-hover:scale-105">
                 <Building2 className="h-6 w-6 text-white" />
-              </div>
-              <div className="flex flex-col">
+              </div> */}
+              <Image
+                src="/img/logo-dark.svg"
+                alt="Gallé Connect Pro logo"
+                width={130}
+                height={50}
+                className="rounded-lg"
+              />
+              {/* <div className="flex flex-col">
                 <span className="text-2xl font-bold tracking-tight">Gallé</span>
                 <span className="text-lg -mt-1 tracking-wide">Connect Pro</span>
-              </div>
+              </div> */}
             </Link>
-            
+
             <p className="text-sm leading-relaxed text-gray-400">
               La plateforme tout-en-un pour les agences immobilières. Gérez vos biens, clients et contrats en toute simplicité.
             </p>
@@ -57,7 +65,7 @@ export function Footer() {
               <a href="https://www.linkedin.com/company/gall%C3%A9-connect" target="_blank" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-gray-300 transition-all hover:bg-[#d99306] hover:text-white" aria-label="LinkedIn">
                 <Linkedin className="h-4 w-4" />
               </a>
-             
+
             </div>
           </div>
 
@@ -101,7 +109,7 @@ export function Footer() {
 
           {/* Legal & Contact */}
           <div>
-            {/* <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-[#d99306]">
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-[#d99306]">
               Légal
             </h4>
             <ul className="mb-8 flex flex-col gap-3">
@@ -115,7 +123,7 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-            </ul> */}
+            </ul>
 
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#d99306]">
               Contact
@@ -127,12 +135,12 @@ export function Footer() {
               >
                 support@galleconnect.com
               </a>
-              <a
+              {/* <a
                 href="tel:+221338001234"
                 className="block transition-colors hover:text-white"
               >
                 +221 33 800 12 34
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -140,7 +148,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} GalleConnect Pro. Tous droits réservés.
+            &copy; {new Date().getFullYear()} Gallé Connect Pro. Tous droits réservés.
           </p>
           <p className="text-sm text-gray-400">
             Fait avec passion par{" "}
