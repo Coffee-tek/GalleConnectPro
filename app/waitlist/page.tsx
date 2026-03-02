@@ -113,7 +113,7 @@ export default function WaitlistPage() {
                       </div>
                       <h2 className="mt-6 text-2xl font-bold text-[#374250]">Merci !</h2>
                       <p className="mt-3 text-[#3a3a3a] leading-relaxed">
-                        Votre inscription a bien été enregistrée. Nous vous contacterons dès que GalleConnect Pro sera disponible.
+                        Votre inscription a bien été enregistrée. Nous vous contacterons dès que Gallé Connect Pro sera disponible.
                       </p>
                     </div>
                   ) : (
