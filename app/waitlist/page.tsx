@@ -122,7 +122,7 @@ export default function WaitlistPage() {
                       <p className="mt-2 text-sm text-[#3a3a3a]">Remplissez le formulaire ci-dessous pour rejoindre la liste d'attente.</p>
 
                       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
-                        <InputField label="Nom complet" name="nomComplet" value={form.nomComplet} onChange={handleChange} placeholder="Ex: Jean Dupont" />
+                        <InputField label="Nom complet" name="nomComplet" value={form.nomComplet} onChange={handleChange} placeholder="Ex: Jamil Seye" />
                         <InputField label="Téléphone" name="telephone" value={form.telephone} onChange={handleChange} placeholder="Ex: 77 000 00 00" />
                         <InputField label="Email" name="email" value={form.email} onChange={handleChange} type="email" placeholder="contact@agence.sn" />
                         <InputField label="Nom de l'agence" name="nomAgence" value={form.nomAgence} onChange={handleChange} placeholder="Ex: Immobilier Dakar Centre" />

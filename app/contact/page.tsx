@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, FormEvent } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Mail, Phone, MapPin, Clock, CheckCircle2, Send } from "lucide-react"
+import { toast } from "sonner"
 
 const contactInfo = [
   {
@@ -54,9 +55,53 @@ const subjects = [
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // form state
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [subject, setSubject] = useState("")
+  const [message, setMessage] = useState("")
+  const [error, setError] = useState<string | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setError(null)
+
+    const name = `${firstName} ${lastName}`.trim()
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          sujet: subject,
+          phone,
+        }),
+      })
+
+      if (res.ok) {
+        setSubmitted(true)
+        // clear fields for next message
+        setFirstName("")
+        setLastName("")
+        setEmail("")
+        setPhone("")
+        setSubject("")
+        setMessage("")
+      } else {
+        const data = await res.json()
+        toast.error(data?.error || "Une erreur est survenue")
+      }
+    } catch (err) {
+      console.error(err)
+      toast.error("Impossible d'envoyer le message. Réessayez plus tard.")
+    }
   }
 
   return (
@@ -180,6 +225,9 @@ export default function ContactPage() {
                     </p>
 
                     <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
+                      {error && (
+                        <p className="text-sm text-red-600 text-center">{error}</p>
+                      )}
                       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                         <div className="flex flex-col gap-2">
                           <Label htmlFor="firstName" className="text-sm font-medium text-[#374250]">
@@ -189,6 +237,8 @@ export default function ContactPage() {
                             id="firstName"
                             placeholder="Jamil"
                             required
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
                             className="bg-background"
                           />
                         </div>
@@ -200,6 +250,8 @@ export default function ContactPage() {
                             id="lastName"
                             placeholder="Seye"
                             required
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
                             className="bg-background"
                           />
                         </div>
@@ -214,18 +266,23 @@ export default function ContactPage() {
                           type="email"
                           placeholder="jamil.seye@email.com"
                           required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                           className="bg-background"
                         />
                       </div>
 
                       <div className="flex flex-col gap-2">
                         <Label htmlFor="phone" className="text-sm font-medium text-[#374250]">
-                          Téléphone (optionnel)
+                          Téléphone
                         </Label>
                         <Input
                           id="phone"
                           type="tel"
                           placeholder="+221 77 123 45 67"
+                          required
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
                           className="bg-background"
                         />
                       </div>
@@ -234,14 +291,18 @@ export default function ContactPage() {
                         <Label htmlFor="subject" className="text-sm font-medium text-[#374250]">
                           Sujet
                         </Label>
-                        <Select required>
+                        <Select
+                          required
+                          value={subject}
+                          onValueChange={(v) => setSubject(v)}
+                        >
                           <SelectTrigger className="bg-background">
                             <SelectValue placeholder="Sélectionnez un sujet" />
                           </SelectTrigger>
                           <SelectContent>
-                            {subjects.map((subject) => (
-                              <SelectItem key={subject.value} value={subject.value}>
-                                {subject.label}
+                            {subjects.map((s) => (
+                              <SelectItem key={s.value} value={s.value}>
+                                {s.label}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -257,6 +318,8 @@ export default function ContactPage() {
                           placeholder="Décrivez votre demande..."
                           required
                           rows={5}
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
                           className="bg-background resize-none"
                         />
                       </div>
