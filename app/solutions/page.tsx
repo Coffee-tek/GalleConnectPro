@@ -107,7 +107,7 @@ const mainSolutions = [
     benefits: [
       "Calendrier intégré avec vue jour, semaine et mois",
       "Prise de rendez-vous en ligne pour vos clients",
-      "Notifications et rappels automatiques (email, SMS)",
+      "Notifications et rappels automatiques (email, notifications push)",
       // "Synchronisation avec Google Calendar et Outlook",
       "Comptes rendus de visite numériques",
       "Statistiques sur les visites et taux de conversion",
