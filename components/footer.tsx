@@ -6,7 +6,7 @@ const siteLinks = [
   { href: "/", label: "Accueil" },
   { href: "/plateforme", label: "Plateforme" },
   { href: "/solutions", label: "Solutions" },
-  { href: "/tarifs", label: "Tarifs" },
+  // { href: "/tarifs", label: "Tarifs" },
   { href: "/contact", label: "Contact" },
   { href: "/waitlist", label: "Liste d’attente" },
 ]
