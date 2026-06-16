@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
     // L'email est secondaire — un échec ne doit pas bloquer l'inscription
     resend.emails.send({
-      from: "GalleConnect Pro <onboarding@resend.dev>",
+      from: "GalleConnect Pro <noreply@galleconnect.com>",
       to: process.env.RESEND_TO_EMAIL!,
       subject: "Nouvelle inscription sur la liste d'attente",
       html: `

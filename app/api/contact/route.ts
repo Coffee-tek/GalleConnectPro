@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     }
 
     await resend.emails.send({
-      from: "GalleConnect Pro <onboarding@resend.dev>",
+      from: "GalleConnect Pro <noreply@galleconnect.com>",
       to: process.env.RESEND_TO_EMAIL!,
       replyTo: email,
       subject: "Nouveau message depuis galleconnectpro.com",
